@@ -30,6 +30,11 @@ namespace ScriptPlayer.Shared
         private void Client_DeviceAdded(object sender, DeviceAddedEventArgs deviceEventArgs)
         {
             AddDevice(deviceEventArgs.Device);
+
+            if (!device.AllowedMessages.ContainsKey(ServerMessage.Types.MessageAttributeType.LinearCmd))
+            {
+                Debug.WriteLine("LINEAR UNSUPPORTED");
+            }
         }
 
 
